@@ -25,7 +25,7 @@ public class EventoBlogPostsRecebidos extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        MyLog.i("RECEBI O EVENTO!! DEU CERTO?" +
+        MyLog.i("RECEBI O EVENTO!! DEU CERTO? " +
             intent.getBooleanExtra(SUCESSO, false));
 
         delegate.lidaComRetorno((List<BlogPost>) intent.getSerializableExtra(RESULTADO_POSTS));
