@@ -9,7 +9,7 @@ import android.support.v4.content.LocalBroadcastManager;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.caelum.fj59.carangos.app.CarangosApplication;
+import br.com.caelum.fj59.carangos.application.CarangosApplication;
 import br.com.caelum.fj59.carangos.delegate.BuscaMaisPostsDelegate;
 import br.com.caelum.fj59.carangos.infra.MyLog;
 import br.com.caelum.fj59.carangos.modelo.BlogPost;

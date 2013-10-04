@@ -7,8 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import br.com.caelum.fj59.carangos.EstadoMainActivity;
-import br.com.caelum.fj59.carangos.MainActivity;
+import br.com.caelum.fj59.carangos.activity.EstadoMainActivity;
+import br.com.caelum.fj59.carangos.activity.MainActivity;
 import br.com.caelum.fj59.carangos.R;
 import br.com.caelum.fj59.carangos.adapter.BlogPostAdapter;
 import br.com.caelum.fj59.carangos.infra.MyLog;

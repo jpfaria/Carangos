@@ -32,13 +32,13 @@
 
 
     <application
-        android:name="br.com.caelum.fj59.carangos.app.CarangosApplication"
+        android:name="br.com.caelum.fj59.carangos.application.CarangosApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="br.com.caelum.fj59.carangos.MainActivity"
+            android:name=".activity.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,6 +46,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver
+            android:name="com.google.android.gcm.GCMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+                <category android:name="br.com.caelum.fj59.carangos" />
+            </intent-filter>
+        </receiver>
+        <service android:name="br.com.caelum.fj59.carangos.service.GCMIntentService" />
     </application>
 
 </manifest>

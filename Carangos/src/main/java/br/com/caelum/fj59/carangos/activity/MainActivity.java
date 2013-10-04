@@ -1,4 +1,4 @@
-package br.com.caelum.fj59.carangos;
+package br.com.caelum.fj59.carangos.activity;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -7,8 +7,10 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.caelum.fj59.carangos.R;
+import br.com.caelum.fj59.carangos.activity.EstadoMainActivity;
 import br.com.caelum.fj59.carangos.infra.MyLog;
-import br.com.caelum.fj59.carangos.app.CarangosApplication;
+import br.com.caelum.fj59.carangos.application.CarangosApplication;
 import br.com.caelum.fj59.carangos.delegate.BuscaMaisPostsDelegate;
 import br.com.caelum.fj59.carangos.modelo.BlogPost;
 import br.com.caelum.fj59.carangos.receiver.EventoBlogPostsRecebidos;

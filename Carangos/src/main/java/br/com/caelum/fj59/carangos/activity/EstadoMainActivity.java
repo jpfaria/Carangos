@@ -1,9 +1,10 @@
-package br.com.caelum.fj59.carangos;
+package br.com.caelum.fj59.carangos.activity;
 
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 
+import br.com.caelum.fj59.carangos.R;
 import br.com.caelum.fj59.carangos.fragment.ListaDePostsFragment;
 import br.com.caelum.fj59.carangos.fragment.ProgressFragment;
 

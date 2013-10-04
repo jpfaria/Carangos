@@ -26,4 +26,5 @@ dependencies {
 	compile 'com.android.support:appcompat-v7:18.0.0'
     compile 'com.koushikdutta.urlimageviewhelper:urlimageviewhelper:1.0.4'
     compile 'com.github.chrisbanes.actionbarpulltorefresh:library:0.7.+'
+    compile files('libs/gcm.jar')
 }

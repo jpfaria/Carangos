@@ -4,7 +4,7 @@ import android.os.AsyncTask;
 
 import java.util.List;
 
-import br.com.caelum.fj59.carangos.app.CarangosApplication;
+import br.com.caelum.fj59.carangos.application.CarangosApplication;
 import br.com.caelum.fj59.carangos.converter.BlogPostConverter;
 import br.com.caelum.fj59.carangos.modelo.BlogPost;
 import br.com.caelum.fj59.carangos.receiver.EventoBlogPostsRecebidos;

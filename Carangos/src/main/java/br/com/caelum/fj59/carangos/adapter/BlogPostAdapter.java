@@ -66,6 +66,12 @@ public class BlogPostAdapter extends BaseAdapter {
             MyLog.i("CRiOU LINHA");
         }
 
+        preencheHolder(position, holder);
+
+        return convertView;
+    }
+
+    private void preencheHolder(int position, ViewHolder holder) {
         BlogPost blogPost = (BlogPost) getItem(position);
 
         holder.mensagem.setText(blogPost.getMensagem());
@@ -84,8 +90,6 @@ public class BlogPostAdapter extends BaseAdapter {
 
         UrlImageViewHelper.setUrlDrawable(holder.foto, blogPost.getFoto(),
                 this.context.getResources().getDrawable(R.drawable.loading));
-
-        return convertView;
     }
 
     private boolean isImpar(int position) {
