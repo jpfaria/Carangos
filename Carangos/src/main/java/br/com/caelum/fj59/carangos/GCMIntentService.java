@@ -13,7 +13,7 @@ import com.google.android.gcm.GCMBaseIntentService;
 
 import java.util.List;
 
-import br.com.caelum.fj59.carangos.activity.MainActivity;
+import br.com.caelum.fj59.carangos.activity.LeilaoActivity;
 import br.com.caelum.fj59.carangos.application.CarangosApplication;
 import br.com.caelum.fj59.carangos.gcm.Constantes;
 import br.com.caelum.fj59.carangos.infra.MyLog;
@@ -40,8 +40,8 @@ public class GCMIntentService extends GCMBaseIntentService {
 
         if (naoRodando) {
 
-// Intent irParaLeilao = new Intent(getApplication(), LeilaoActivity.class);
-            Intent irParaLeilao = new Intent(getApplication(), MainActivity.class);
+            Intent irParaLeilao = new Intent(getApplication(), LeilaoActivity.class);
+            //Intent irParaLeilao = new Intent(getApplication(), MainActivity.class);
 
             PendingIntent acaoPendente = PendingIntent
                     .getActivity(getApplication(), 0, irParaLeilao, Intent.FLAG_ACTIVITY_NEW_TASK);

@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.support.v4.content.LocalBroadcastManager;
 
+import br.com.caelum.fj59.carangos.activity.LeilaoActivity;
 import br.com.caelum.fj59.carangos.application.CarangosApplication;
 import br.com.caelum.fj59.carangos.infra.MyLog;
 
@@ -29,7 +30,7 @@ public class EventoLeilaoIniciado extends BroadcastReceiver {
                 .setPositiveButton("Entrar",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-// activity.startActivity(new Intent(activity, LeilaoActivity.class));
+                            activity.startActivity(new Intent(activity, LeilaoActivity.class));
                             }
                         }
                 )
