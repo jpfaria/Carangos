@@ -14,6 +14,7 @@ import br.com.caelum.fj59.carangos.application.CarangosApplication;
 import br.com.caelum.fj59.carangos.delegate.BuscaMaisPostsDelegate;
 import br.com.caelum.fj59.carangos.modelo.BlogPost;
 import br.com.caelum.fj59.carangos.receiver.EventoBlogPostsRecebidos;
+import br.com.caelum.fj59.carangos.receiver.EventoLeilaoIniciado;
 import br.com.caelum.fj59.carangos.task.BuscaMaisPostsTask;
 import uk.co.senab.actionbarpulltorefresh.library.PullToRefreshAttacher;
 
@@ -26,6 +27,7 @@ public class MainActivity extends Activity implements BuscaMaisPostsDelegate {
     private EstadoMainActivity estado;
     private EventoBlogPostsRecebidos evento;
     private PullToRefreshAttacher attacher;
+    private EventoLeilaoIniciado observadorLeilaoIniciado;
 
     public List<BlogPost> getPosts() {
         return posts;
@@ -50,6 +52,7 @@ public class MainActivity extends Activity implements BuscaMaisPostsDelegate {
         }
 
         this.evento = EventoBlogPostsRecebidos.registraObservador(this);
+        this.observadorLeilaoIniciado = EventoLeilaoIniciado.registraObservador(this);
     }
 
     @Override
@@ -71,6 +74,7 @@ public class MainActivity extends Activity implements BuscaMaisPostsDelegate {
     protected void onDestroy() {
         super.onDestroy();
         this.evento.desregistra(getCarangosApplication());
+        this.observadorLeilaoIniciado.desregistra(getCarangosApplication());
     }
 
     @Override

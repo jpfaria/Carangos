@@ -1,10 +1,10 @@
-package br.com.caelum.fj59.carangos.push;
+package br.com.caelum.fj59.carangos.gcm;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.content.Context;
 
-public class InformacoesUsuario {
+public class InformacoesDoUsuario {
 
         public static String getEmail(Context context) {
 
