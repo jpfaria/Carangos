@@ -14,7 +14,6 @@ public enum EstadoMainActivity {
         public void executa(MainActivity activity) {
             this.colocaOuBuscaFragmentNaTela(activity, R.id.fragment_principal,
                     ProgressFragment.class, false);
-
             activity.buscaPrimeirosPosts();
         }
     },
@@ -23,6 +22,15 @@ public enum EstadoMainActivity {
         public void executa(MainActivity activity) {
             this.colocaOuBuscaFragmentNaTela(activity, R.id.fragment_principal,
                     ListaDePostsFragment.class, false);
+        }
+    },
+    PULL_TO_REFRESH_REQUISITADO {
+        @Override
+        public void executa(MainActivity activity) {
+            activity.getPosts().clear();
+            this.colocaOuBuscaFragmentNaTela(activity, R.id.fragment_principal,
+                    ProgressFragment.class, false);
+            activity.buscaPrimeirosPosts();
         }
     };
 
@@ -52,4 +60,5 @@ public enum EstadoMainActivity {
     }
 
     public abstract void executa(MainActivity activity);
+
 }

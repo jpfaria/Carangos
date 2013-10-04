@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
 
 import java.util.List;
 
@@ -15,10 +16,8 @@ import br.com.caelum.fj59.carangos.R;
 import br.com.caelum.fj59.carangos.infra.MyLog;
 import br.com.caelum.fj59.carangos.modelo.BlogPost;
 
-/**
- * Created by erich on 7/16/13.
- */
 public class BlogPostAdapter extends BaseAdapter {
+
     private Context context;
     private final List<BlogPost> posts;
 
@@ -44,20 +43,35 @@ public class BlogPostAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup viewGroup) {
+
+        ViewHolder holder;
+
+        int linha;
+
+        if (isImpar(position)) {
+            linha = R.layout.post_linha_impar;
+            MyLog.i("Linha IMPAR!");
+        } else {
+            linha = R.layout.post_linha_par;
+            MyLog.i("Linha PAR!");
+        }
+
+        if (convertView != null ) {
+            holder = (ViewHolder) convertView.getTag();
+            MyLog.i("APROVEITOU LINHA");
+        } else {
+            convertView = LayoutInflater.from(context).inflate(linha, viewGroup, false);
+            holder = new ViewHolder(convertView);
+            convertView.setTag(holder);
+            MyLog.i("CRiOU LINHA");
+        }
+
         BlogPost blogPost = (BlogPost) getItem(position);
 
-        View linha = LayoutInflater.from(context).inflate(R.layout.
-                post_linha_par, null);
+        holder.mensagem.setText(blogPost.getMensagem());
+        holder.nomeAutor.setText(blogPost.getAutor().getNome());
 
-        ImageView foto = (ImageView) linha.findViewById(R.id.foto);
-        TextView mensagem = (TextView) linha.findViewById(R.id.mensagem);
-        TextView nomeAutor = (TextView) linha.findViewById(R.id.nome_autor);
-        ImageView emoticon = (ImageView) linha.findViewById(R.id.emoticon);
-
-        mensagem.setText(blogPost.getMensagem());
-        nomeAutor.setText(blogPost.getAutor().getNome());
-        
-        foto.setImageDrawable(this.context.getResources().getDrawable(R.drawable.ic_car));
+        holder.foto.setImageDrawable(this.context.getResources().getDrawable(R.drawable.ic_car));
 
         int idImagem = 0;
         switch (blogPost.getEstadoDeHumor()) {
@@ -66,8 +80,35 @@ public class BlogPostAdapter extends BaseAdapter {
             case TRISTE: idImagem = R.drawable.ic_indiferente; break;
         }
 
-        emoticon.setImageDrawable(this.context.getResources().getDrawable(idImagem));
+        holder.emoticon.setImageDrawable(this.context.getResources().getDrawable(idImagem));
 
-        return linha;
+        UrlImageViewHelper.setUrlDrawable(holder.foto, blogPost.getFoto(),
+                this.context.getResources().getDrawable(R.drawable.loading));
+
+        return convertView;
     }
+
+    private boolean isImpar(int position) {
+        if (position % 2 == 0) {
+            return false;
+        }
+        return true;
+    }
+
+    class ViewHolder {
+
+        ImageView foto;
+        TextView mensagem;
+        TextView nomeAutor;
+        ImageView emoticon;
+
+        ViewHolder(View linha) {
+            this.foto = (ImageView) linha.findViewById(R.id.foto);
+            this.mensagem = (TextView) linha.findViewById(R.id.mensagem);
+            this.nomeAutor = (TextView) linha.findViewById(R.id.nome_autor);
+            this.emoticon = (ImageView) linha.findViewById(R.id.emoticon);
+        }
+
+    }
+
 }

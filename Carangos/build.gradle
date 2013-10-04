@@ -18,10 +18,12 @@ android {
 
     defaultConfig {
         minSdkVersion 7
-        targetSdkVersion 16
+        targetSdkVersion 18
     }
 }
 
 dependencies {
 	compile 'com.android.support:appcompat-v7:18.0.0'
+    compile 'com.koushikdutta.urlimageviewhelper:urlimageviewhelper:1.0.4'
+    compile 'com.github.chrisbanes.actionbarpulltorefresh:library:0.7.+'
 }

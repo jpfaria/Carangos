@@ -8,6 +8,7 @@
             android:layout_height="match_parent"
             />
 
+    <!--
     <FrameLayout
             android:id="@+id/fragment_messagens"
             android:background="#000000"
@@ -16,7 +17,7 @@
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="10dp"
-            />
+            /> -->
 
 </RelativeLayout>
 
