@@ -64,9 +64,9 @@ public class LeilaoActivity extends Activity {
                 if (horarioUltimaBusca != null) {
                     webClient = new WebClient("leilao/leilaoid54635/" +
                             new SimpleDateFormat("ddMMyy-HHmmss")
-                                    .format(horarioUltimaBusca.getTime()));
+                                    .format(horarioUltimaBusca.getTime()), getApplication());
                 } else {
-                    webClient = new WebClient("leilao/leilaoid54635");
+                    webClient = new WebClient("leilao/leilaoid54635", getApplication());
                 }
 
                 String json = webClient.get();

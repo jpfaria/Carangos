@@ -9,19 +9,19 @@ import br.com.caelum.fj59.carangos.webservice.WebClient;
 
 public class RegistraDeviceTask extends AsyncTask<String, Void, Boolean> {
 
-    private CarangosApplication app;
+    private CarangosApplication application;
 
     public RegistraDeviceTask(CarangosApplication app) {
-        this.app = app;
+        this.application = app;
     }
 
     @Override
     protected Boolean doInBackground(String... params) {
         try {
             String registrationId = params[0];
-            String email = InformacoesDoUsuario.getEmail(app);
+            String email = InformacoesDoUsuario.getEmail(application);
 
-            new WebClient("device/register/" + email + "/" + registrationId).post();
+            new WebClient("device/register/" + email + "/" + registrationId, application).post();
         } catch (Exception e) {
             MyLog.e("Problema no registro do device no server!" + e.getMessage());
             return false;
@@ -31,7 +31,7 @@ public class RegistraDeviceTask extends AsyncTask<String, Void, Boolean> {
 
     @Override
     protected void onPostExecute(Boolean result) {
-        app.lidaComRespostaDoRegistroNoServidor(result);
+        application.lidaComRespostaDoRegistroNoServidor(result);
     }
 
 }

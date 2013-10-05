@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Carangos/Carangos.iml" filepath="$PROJECT_DIR$/Carangos/Carangos.iml" />
       <module fileurl="file://$PROJECT_DIR$/CarangosProject.iml" filepath="$PROJECT_DIR$/CarangosProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CarangosTunning/CarangosTunning.iml" filepath="$PROJECT_DIR$/CarangosTunning/CarangosTunning.iml" />
     </modules>
   </component>
 </project>
